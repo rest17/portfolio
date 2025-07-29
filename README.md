@@ -32,9 +32,5 @@ Professional portfolio website for Chitralekha, a Staff Software Engineer with 1
 
 ## 🌐 Live Demo
 Visit the live website: [Your GitHub Pages URL will go here]
-
-## 📝 License
-This project is open source and available under the [MIT License](LICENSE).
-
 ---
 *Built with ❤️ and modern web technologies*
