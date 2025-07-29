@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitralekha - Staff Software Engineer | Portfolio</title>
+    <meta name="description" content="Staff Software Engineer with 14+ years experience in cybersecurity, cloud platforms, and enterprise software development. Patent holder in secure remote access technology.">
+    <meta name="keywords" content="software engineer, cybersecurity, cloud computing, java, javascript, aws, patent holder">
+    <meta name="author" content="Chitralekha">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👩‍💻</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .experience-timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 0 2rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #667eea;
+        }
+
+        .company {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .position {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .duration {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        .patent-showcase {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .patent-showcase::before {
+            content: '🏆';
+            font-size: 4rem;
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            opacity: 0.3;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item .icon {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline-line {
+                left: 2rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                margin-left: 4rem;
+                margin-right: 0;
+            }
+
+            .timeline-dot {
+                left: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Chitralekha</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Chitralekha</h1>
+                    <p class="subtitle">Staff Software Engineer | Cybersecurity Expert</p>
+                    <a href="https://calendly.com/your-username" target="_blank" class="cta-button">Let's Connect</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">👩‍💻</div>
+                    <div class="about-text">
+                        <p>I'm a <span class="highlight">Staff Software Engineer</span> with over 14 years of experience in web application development, cross-platform solutions, and cybersecurity. My expertise spans from architecting secure, scalable systems to leading teams in delivering robust enterprise solutions.</p>
+                        
+                        <p>Adept at designing secure, scalable systems, and leading teams to deliver robust solutions, improving security compliance and user experience across organizations. I've contributed to cutting-edge security solutions, particularly in secure remote access technologies.</p>
+                        
+                        <p>Currently <span class="highlight">pursuing a Master's in Cybersecurity</span> from Georgia Institute of Technology and have worked with industry leaders like Cisco, Symantec, and Visa, delivering solutions that handle millions of users and transactions daily.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="patent-showcase">
+                    <h3>🏆 Patent Achievement</h3>
+                    <h4>Secure Access via Remote Client</h4>
+                    <p><strong>U.S. Patent No. 12,341,782 (Granted 2025)</strong></p>
+                    <p>Co-inventor of a revolutionary content inspection security layer that provides policy-based prevention of data leaks in remote access sessions, developed at Sonet.io</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Technical Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🔒 Security & Networking</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Zero Trust Architecture</span>
+                            <span class="skill-tag">Content Inspection</span>
+                            <span class="skill-tag">DLP</span>
+                            <span class="skill-tag">Digital Watermarking</span>
+                            <span class="skill-tag">Policy-Based Access</span>
+                            <span class="skill-tag">Network Protocols</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>💻 Programming & Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript/Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Lua</span>
+                            <span class="skill-tag">AutoHotKey</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🌐 Protocols & Frameworks</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTTP/REST</span>
+                            <span class="skill-tag">WebSockets</span>
+                            <span class="skill-tag">RDP</span>
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">Hibernate</span>
+                            <span class="skill-tag">Apache Tomcat</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>☁️ Cloud & DevOps</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certifications">
+                    <div class="cert-badge">🏅 ITIL v3 Foundation</div>
+                    <div class="cert-badge">☁️ AWS Certified Developer</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Professional Journey</h2>
+                <div class="experience-timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="company">Sonet.io</div>
+                            <div class="position">Staff Software Engineer</div>
+                            <div class="duration">Jan 2022 - Present | Santa Clara, CA</div>
+                            <ul class="achievements">
+                                <li>Founding engineer at Series Seed startup, launched platform from $0 to $1M ARR</li>
+                                <li>Grew customer base from 0 to 10 enterprise clients in first 2 years</li>
+                                <li>Developed policy engine using OPA for fine-grained access control and DLP</li>
+                                <li>Created patented content inspection technology for real-time data leak prevention</li>
+                                <li>Customized RDP protocol with security wrapper to eliminate vulnerabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="company">Cisco Systems</div>
+                            <div class="position">Senior Software Engineer</div>
+                            <div class="duration">Apr 2020 - Jan 2022 | San Jose, CA</div>
+                            <ul class="achievements">
+                                <li>Re-architected network configuration modules for concurrent device management</li>
+                                <li>Reduced customer update rollout time from 16+ hours to under 10 hours</li>
+                                <li>Enabled zero-touch provisioning, reducing manual intervention by 80%</li>
+                                <li>Resolved critical bugs in large-scale networking software (Java/C++)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="company">Symantec (Broadcom)</div>
+                            <div class="position">Software Development Engineer III</div>
+                            <div class="duration">Mar 2016 - Apr 2020 | Mountain View, CA</div>
+                            <ul class="achievements">
+                                <li>Built WebSocket infrastructure handling 60,000+ concurrent connections</li>
+                                <li>Developed scalable ICAP proxy service processing 10+ million users daily</li>
+                                <li>Automated SD-WAN orchestration via microservices architecture</li>
+                                <li>Migrated on-premises databases to AWS RDS with near-zero downtime</li>
+                                <li>🏆 Received "Above and Beyond" award for exceptional performance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="company">Visa Inc.</div>
+                            <div class="position">Software Engineer (Consultant)</div>
+                            <div class="duration">Sep 2015 - Mar 2016 | Foster City, CA</div>
+                            <ul class="achievements">
+                                <li>Developed secure data exchange module for risk management services</li>
+                                <li>Built RESTful endpoints for real-time fraud alert processing</li>
+                                <li>Automated testing scenarios using Groovy scripts</li>
+                                <li>Contributed front-end components with Node.js and HTML</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-item">
+                            <span class="icon">📧</span>
+                            <span>Chitralekha.1917@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📱</span>
+                            <span>510-990-4708</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📍</span>
+                            <span>Dublin, CA 94568</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">💼</span>
+                            <a href="https://linkedin.com/in/fnuchitralekha" style="color: #667eea; text-decoration: none;">LinkedIn Profile</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">🎨</span>
+                            <a href="https://www.allianceforthevisualarts.org/chitralekha" style="color: #667eea; text-decoration: none;">Art Portfolio</a>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Education & Achievements</h3>
+                        <p><strong>🎓 Master of Science in Cybersecurity</strong><br>
+                        Georgia Institute of Technology (Pursuing)</p>
+                        
+                        <p><strong>🎓 B.Tech Computer Science</strong><br>
+                        SRM University (University Topper - 3rd Rank)</p>
+                        
+                        <p><strong>🏆 Awards & Recognition</strong><br>
+                        • Services Excellence Award (Cisco, Symantec)<br>
+                        • Technical Excellence Award (Expicient)<br>
+                        • Featured in 6+ juried art exhibitions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Chitralekha. Staff Software Engineer | Cybersecurity Expert | Innovation Leader</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Built with HTML, CSS & JavaScript | Hosted on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items and skill categories
+        document.querySelectorAll('.timeline-content, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
