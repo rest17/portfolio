@@ -1,4 +1,3 @@
-# fnuchitralekha.github.io
 # Portfolio Website - Chitralekha
 
 ## 👩‍💻 About
