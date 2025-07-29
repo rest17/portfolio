@@ -1,12 +1,34 @@
-<!DOCTYPE html>
+.timeline-line {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+            }
+
+            .timeline-item:nth-child(even) {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+
+            .timeline-content::before {
+                display: none;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chitralekha - Staff Software Engineer | Portfolio</title>
+    <title>FNU Chitralekha - Staff Software Engineer</title>
     <meta name="description" content="Staff Software Engineer with 14+ years experience in cybersecurity, cloud platforms, and enterprise software development. Patent holder in secure remote access technology.">
-    <meta name="keywords" content="software engineer, cybersecurity, cloud computing, java, javascript, aws, patent holder">
-    <meta name="author" content="Chitralekha">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👩‍💻</text></svg>">
     <style>
         * {
@@ -16,257 +38,253 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: #2c3e50;
+            background: #ffffff;
+            font-size: 16px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
+            padding: 24px 0;
+            border-bottom: 1px solid #e1e8ed;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
 
-        nav {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 32px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #666;
             font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
+            font-size: 15px;
+            transition: color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #667eea;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a1a1a;
         }
 
         main {
             margin-top: 80px;
+            padding: 60px 0;
         }
 
-        .hero {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
-            color: white;
-            padding: 100px 0;
+        .hero-section {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 80px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.4s both;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .section:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        .about-image {
-            width: 300px;
-            height: 300px;
+        .profile-image {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 6rem;
+            font-size: 48px;
             color: white;
-            margin: 0 auto;
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+            margin: 0 auto 32px;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+            overflow: hidden;
+            position: relative;
         }
 
-        .about-text {
-            font-size: 1.1rem;
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-image .placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1a1a1a;
+            border: 2px solid #e1e8ed;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-1px);
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .about-content {
+            font-size: 18px;
             line-height: 1.8;
+            color: #666;
+            margin-bottom: 40px;
         }
 
-        .highlight {
-            color: #667eea;
-            font-weight: bold;
+        .patent-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .patent-highlight h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .patent-highlight p {
+            font-size: 16px;
+            opacity: 0.9;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
         }
 
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .skill-card {
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #e1e8ed;
         }
 
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        .skill-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
         }
 
-        .skill-category h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .skill-tags {
+        .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 8px;
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            background: white;
+            color: #666;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
             font-weight: 500;
+            border: 1px solid #e1e8ed;
         }
 
-        .experience-timeline {
+        .timeline-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+            margin: 80px 0;
+            border-radius: 20px;
+        }
+
+        .timeline-container {
             position: relative;
-            margin-top: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .timeline-line {
@@ -275,14 +293,20 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(180deg, #667eea, #764ba2);
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             transform: translateX(-50%);
+            border-radius: 2px;
         }
 
         .timeline-item {
             display: flex;
-            margin-bottom: 4rem;
+            margin-bottom: 60px;
             position: relative;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
         }
 
         .timeline-item:nth-child(even) {
@@ -292,241 +316,273 @@
         .timeline-content {
             flex: 1;
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin: 0 2rem;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin: 0 40px;
             position: relative;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .timeline-content:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid white;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -15px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 15px solid white;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
         }
 
         .timeline-dot {
             position: absolute;
             left: 50%;
-            top: 2rem;
-            width: 20px;
-            height: 20px;
-            background: #667eea;
+            top: 40px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             transform: translateX(-50%);
             border: 4px solid white;
-            box-shadow: 0 0 0 4px #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+            z-index: 10;
         }
 
-        .company {
+        .timeline-item:nth-child(1) .timeline-dot { background: #667eea; }
+        .timeline-item:nth-child(2) .timeline-dot { background: #764ba2; }
+        .timeline-item:nth-child(3) .timeline-dot { background: #f093fb; }
+        .timeline-item:nth-child(4) .timeline-dot { background: #f5576c; }
+        .timeline-item:nth-child(5) .timeline-dot { background: #4facfe; }
+
+        .timeline-year {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .timeline-company {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .timeline-role {
+            font-size: 16px;
             color: #667eea;
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
         }
 
-        .position {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin: 0.5rem 0;
-        }
-
-        .duration {
+        .timeline-description {
+            font-size: 15px;
+            line-height: 1.7;
             color: #666;
-            font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 16px;
         }
 
-        .achievements {
+        .timeline-achievements {
             list-style: none;
         }
 
-        .achievements li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
+        .timeline-achievements li {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            padding-left: 20px;
             position: relative;
         }
 
-        .achievements li::before {
-            content: '▶';
-            color: #667eea;
+        .timeline-achievements li::before {
+            content: '✓';
             position: absolute;
             left: 0;
-        }
-
-        .patent-showcase {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 3rem;
-            border-radius: 20px;
-            margin: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .patent-showcase::before {
-            content: '🏆';
-            font-size: 4rem;
-            position: absolute;
-            top: 1rem;
-            right: 2rem;
-            opacity: 0.3;
+            color: #667eea;
+            font-weight: bold;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 24px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 1px solid #e1e8ed;
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
         }
 
         .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-size: 15px;
+            color: #666;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item .icon {
-            margin-right: 1rem;
-            font-size: 1.5rem;
+        .contact-info a {
             color: #667eea;
+            text-decoration: none;
         }
 
-        .certifications {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .cert-badge {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
         footer {
-            background: #333;
-            color: white;
+            border-top: 1px solid #e1e8ed;
+            padding: 40px 0;
             text-align: center;
-            padding: 2rem;
+            color: #666;
+            font-size: 14px;
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-title {
+                font-size: 36px;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .hero-subtitle {
+                font-size: 20px;
             }
 
-            .timeline-line {
-                left: 2rem;
+            .hero-description {
+                font-size: 16px;
             }
 
-            .timeline-item {
-                flex-direction: column;
+            .section-title {
+                font-size: 28px;
             }
 
-            .timeline-item:nth-child(even) {
-                flex-direction: column;
-            }
-
-            .timeline-content {
-                margin-left: 4rem;
-                margin-right: 0;
-            }
-
-            .timeline-dot {
-                left: 2rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .certifications {
+            .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Chitralekha</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Chitralekha</div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#about" class="active">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Chitralekha</h1>
-                    <p class="subtitle">Staff Software Engineer | Cybersecurity Expert</p>
-                    <a href="https://calendly.com/your-username" target="_blank" class="cta-button">Let's Connect</a>
+        <div class="container">
+            <section class="hero-section">
+                <div class="profile-image">👩‍💻</div>
+                <h1 class="hero-title">FNU Chitralekha</h1>
+                <p class="hero-subtitle">Staff Software Engineer</p>
+                <p class="hero-description">
+                    Staff software engineer with 14+ years of experience in web application, cross-platform development (Linux, Windows, cloud), and a strong focus on cybersecurity. Adept at designing secure, scalable systems, and leading teams to deliver robust solutions, improving security compliance and user experience across organizations.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/your-username" target="_blank" class="btn btn-primary">
+                        📅 Schedule a Meeting
+                    </a>
+                    <a href="https://linkedin.com/in/fnuchitralekha" target="_blank" class="btn btn-secondary">
+                        💼 LinkedIn Profile
+                    </a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
+            <section id="about" class="section fade-in">
+                <h2 class="section-title">About</h2>
                 <div class="about-content">
-                    <div class="about-image">👩‍💻</div>
-                    <div class="about-text">
-                        <p>I'm a <span class="highlight">Staff Software Engineer</span> with over 14 years of experience in web application development, cross-platform solutions, and cybersecurity. My expertise spans from architecting secure, scalable systems to leading teams in delivering robust enterprise solutions.</p>
-                        
-                        <p>Adept at designing secure, scalable systems, and leading teams to deliver robust solutions, improving security compliance and user experience across organizations. I've contributed to cutting-edge security solutions, particularly in secure remote access technologies.</p>
-                        
-                        <p>Currently <span class="highlight">pursuing a Master's in Cybersecurity</span> from Georgia Institute of Technology and have worked with industry leaders like Cisco, Symantec, and Visa, delivering solutions that handle millions of users and transactions daily.</p>
-                    </div>
+                    <p>I'm a Staff Software Engineer with extensive experience in enterprise software development, cybersecurity, and cloud technologies. Currently pursuing a Master's in Cybersecurity from Georgia Institute of Technology while leading innovative security solutions at Sonet.io.</p>
+                    
+                    <p>My expertise spans from zero trust architecture to policy-driven security systems, with a proven track record of scaling platforms from startup phase to enterprise adoption. I've worked with industry leaders including Cisco, Symantec, and Visa, delivering solutions that handle millions of users daily.</p>
                 </div>
-            </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="patent-showcase">
+                <div class="patent-highlight">
                     <h3>🏆 Patent Achievement</h3>
-                    <h4>Secure Access via Remote Client</h4>
-                    <p><strong>U.S. Patent No. 12,341,782 (Granted 2025)</strong></p>
-                    <p>Co-inventor of a revolutionary content inspection security layer that provides policy-based prevention of data leaks in remote access sessions, developed at Sonet.io</p>
+                    <p><strong>Secure access via a remote client</strong><br>
+                    U.S. Patent No. 12,341,782 (Granted 2025)</p>
+                    <p>Co-inventor of a content inspection security layer that provides policy-based prevention of data leaks in remote access sessions (technology developed at Sonet.io).</p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="skills" class="section">
-            <div class="container">
-                <h2 class="section-title">Technical Expertise</h2>
+            <section id="skills" class="section fade-in">
+                <h2 class="section-title">Technical Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>🔒 Security & Networking</h3>
-                        <div class="skill-tags">
+                    <div class="skill-card">
+                        <h4>🔒 Security & Networking</h4>
+                        <div class="skill-list">
                             <span class="skill-tag">Zero Trust Architecture</span>
                             <span class="skill-tag">Content Inspection</span>
                             <span class="skill-tag">DLP</span>
@@ -535,31 +591,20 @@
                             <span class="skill-tag">Network Protocols</span>
                         </div>
                     </div>
-                    <div class="skill-category">
-                        <h3>💻 Programming & Development</h3>
-                        <div class="skill-tags">
+                    <div class="skill-card">
+                        <h4>💻 Programming</h4>
+                        <div class="skill-list">
                             <span class="skill-tag">Java</span>
-                            <span class="skill-tag">JavaScript/Node.js</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">HTML/CSS</span>
                             <span class="skill-tag">Lua</span>
-                            <span class="skill-tag">AutoHotKey</span>
                         </div>
                     </div>
-                    <div class="skill-category">
-                        <h3>🌐 Protocols & Frameworks</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTTP/REST</span>
-                            <span class="skill-tag">WebSockets</span>
-                            <span class="skill-tag">RDP</span>
-                            <span class="skill-tag">Spring Boot</span>
-                            <span class="skill-tag">Hibernate</span>
-                            <span class="skill-tag">Apache Tomcat</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>☁️ Cloud & DevOps</h3>
-                        <div class="skill-tags">
+                    <div class="skill-card">
+                        <h4>☁️ Cloud & DevOps</h4>
+                        <div class="skill-list">
                             <span class="skill-tag">AWS</span>
                             <span class="skill-tag">GCP</span>
                             <span class="skill-tag">Azure</span>
@@ -568,135 +613,128 @@
                             <span class="skill-tag">CI/CD</span>
                         </div>
                     </div>
+                    <div class="skill-card">
+                        <h4>🛠️ Frameworks & Tools</h4>
+                        <div class="skill-list">
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">Hibernate</span>
+                            <span class="skill-tag">Apache Tomcat</span>
+                            <span class="skill-tag">WebSockets</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">RDP</span>
+                        </div>
+                    </div>
                 </div>
+            </section>
+
+            <section id="experience" class="section fade-in">
+                <h2 class="section-title">Experience</h2>
                 
-                <div class="certifications">
-                    <div class="cert-badge">🏅 ITIL v3 Foundation</div>
-                    <div class="cert-badge">☁️ AWS Certified Developer</div>
+                <div class="experience-item">
+                    <h3 class="company-title">Sonet.io - Staff Software Engineer</h3>
+                    <p class="role-duration">Jan 2022 - Present | Santa Clara, CA</p>
+                    <p class="role-description">
+                        Founding engineer at Series Seed startup delivering secure access to SaaS applications, virtual desktops, and servers. Leading core platform development and security innovations.
+                    </p>
+                    <ul class="achievements">
+                        <li>Launched platform from $0 to $1M ARR with 10 enterprise clients in 2 years</li>
+                        <li>Developed OPA-based policy engine for fine-grained access control and DLP</li>
+                        <li>Created patented content inspection technology for real-time data leak prevention</li>
+                        <li>Customized RDP protocol with security wrapper to eliminate vulnerabilities</li>
+                        <li>Implemented comprehensive audit logging with 100% user action coverage</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
 
-        <section id="experience" class="section">
-            <div class="container">
-                <h2 class="section-title">Professional Journey</h2>
-                <div class="experience-timeline">
-                    <div class="timeline-line"></div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="company">Sonet.io</div>
-                            <div class="position">Staff Software Engineer</div>
-                            <div class="duration">Jan 2022 - Present | Santa Clara, CA</div>
-                            <ul class="achievements">
-                                <li>Founding engineer at Series Seed startup, launched platform from $0 to $1M ARR</li>
-                                <li>Grew customer base from 0 to 10 enterprise clients in first 2 years</li>
-                                <li>Developed policy engine using OPA for fine-grained access control and DLP</li>
-                                <li>Created patented content inspection technology for real-time data leak prevention</li>
-                                <li>Customized RDP protocol with security wrapper to eliminate vulnerabilities</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="company">Cisco Systems</div>
-                            <div class="position">Senior Software Engineer</div>
-                            <div class="duration">Apr 2020 - Jan 2022 | San Jose, CA</div>
-                            <ul class="achievements">
-                                <li>Re-architected network configuration modules for concurrent device management</li>
-                                <li>Reduced customer update rollout time from 16+ hours to under 10 hours</li>
-                                <li>Enabled zero-touch provisioning, reducing manual intervention by 80%</li>
-                                <li>Resolved critical bugs in large-scale networking software (Java/C++)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="company">Symantec (Broadcom)</div>
-                            <div class="position">Software Development Engineer III</div>
-                            <div class="duration">Mar 2016 - Apr 2020 | Mountain View, CA</div>
-                            <ul class="achievements">
-                                <li>Built WebSocket infrastructure handling 60,000+ concurrent connections</li>
-                                <li>Developed scalable ICAP proxy service processing 10+ million users daily</li>
-                                <li>Automated SD-WAN orchestration via microservices architecture</li>
-                                <li>Migrated on-premises databases to AWS RDS with near-zero downtime</li>
-                                <li>🏆 Received "Above and Beyond" award for exceptional performance</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="company">Visa Inc.</div>
-                            <div class="position">Software Engineer (Consultant)</div>
-                            <div class="duration">Sep 2015 - Mar 2016 | Foster City, CA</div>
-                            <ul class="achievements">
-                                <li>Developed secure data exchange module for risk management services</li>
-                                <li>Built RESTful endpoints for real-time fraud alert processing</li>
-                                <li>Automated testing scenarios using Groovy scripts</li>
-                                <li>Contributed front-end components with Node.js and HTML</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="experience-item">
+                    <h3 class="company-title">Cisco Systems - Senior Software Engineer</h3>
+                    <p class="role-duration">Apr 2020 - Jan 2022 | San Jose, CA</p>
+                    <p class="role-description">
+                        Architected network configuration solutions for enterprise-scale deployments, focusing on performance optimization and automation.
+                    </p>
+                    <ul class="achievements">
+                        <li>Re-architected modules to deploy configurations to hundreds of devices concurrently</li>
+                        <li>Reduced customer update rollout time from 16+ hours to under 10 hours</li>
+                        <li>Enabled zero-touch provisioning, reducing manual intervention by 80%</li>
+                        <li>Resolved critical bugs in large-scale networking software (Java/C++)</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
 
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Let's Connect</h2>
+                <div class="experience-item">
+                    <h3 class="company-title">Symantec (Broadcom) - Software Development Engineer III</h3>
+                    <p class="role-duration">Mar 2016 - Apr 2020 | Mountain View, CA</p>
+                    <p class="role-description">
+                        Designed enterprise security software with focus on high performance and scalability for cloud-based security solutions.
+                    </p>
+                    <ul class="achievements">
+                        <li>Built WebSocket infrastructure handling 60,000+ concurrent connections</li>
+                        <li>Developed scalable ICAP proxy service processing 10+ million users daily</li>
+                        <li>Automated SD-WAN orchestration via microservices architecture</li>
+                        <li>Migrated databases to AWS RDS with near-zero downtime</li>
+                        <li>Received "Above and Beyond" award for exceptional performance</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3 class="company-title">Visa Inc. - Software Engineer (Consultant)</h3>
+                    <p class="role-duration">Sep 2015 - Mar 2016 | Foster City, CA</p>
+                    <p class="role-description">
+                        Developed secure transaction processing systems for global payment infrastructure.
+                    </p>
+                    <ul class="achievements">
+                        <li>Built secure data exchange module for risk management services</li>
+                        <li>Created RESTful endpoints for real-time fraud alert processing</li>
+                        <li>Automated testing scenarios and contributed front-end components</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="contact" class="section fade-in">
+                <h2 class="section-title">Contact</h2>
                 <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Get In Touch</h3>
-                        <div class="contact-item">
-                            <span class="icon">📧</span>
-                            <span>Chitralekha.1917@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon">📱</span>
-                            <span>510-990-4708</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon">📍</span>
-                            <span>Dublin, CA 94568</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon">💼</span>
-                            <a href="https://linkedin.com/in/fnuchitralekha" style="color: #667eea; text-decoration: none;">LinkedIn Profile</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon">🎨</span>
-                            <a href="https://www.allianceforthevisualarts.org/chitralekha" style="color: #667eea; text-decoration: none;">Art Portfolio</a>
-                        </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h4 class="contact-title">Email</h4>
+                        <p class="contact-info">
+                            <a href="mailto:Chitralekha.1917@gmail.com">Chitralekha.1917@gmail.com</a>
+                        </p>
                     </div>
-                    <div class="contact-info">
-                        <h3>Education & Achievements</h3>
-                        <p><strong>🎓 Master of Science in Cybersecurity</strong><br>
-                        Georgia Institute of Technology (Pursuing)</p>
-                        
-                        <p><strong>🎓 B.Tech Computer Science</strong><br>
-                        SRM University (University Topper - 3rd Rank)</p>
-                        
-                        <p><strong>🏆 Awards & Recognition</strong><br>
-                        • Services Excellence Award (Cisco, Symantec)<br>
-                        • Technical Excellence Award (Expicient)<br>
-                        • Featured in 6+ juried art exhibitions</p>
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <h4 class="contact-title">Phone</h4>
+                        <p class="contact-info">510-990-4708</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">💼</div>
+                        <h4 class="contact-title">LinkedIn</h4>
+                        <p class="contact-info">
+                            <a href="https://linkedin.com/in/fnuchitralekha" target="_blank">fnuchitralekha</a>
+                        </p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🎨</div>
+                        <h4 class="contact-title">Art Portfolio</h4>
+                        <p class="contact-info">
+                            <a href="https://www.allianceforthevisualarts.org/chitralekha" target="_blank">Visual Arts</a>
+                        </p>
                     </div>
                 </div>
-            </div>
-        </section>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <h4 style="margin-bottom: 16px;">Education & Certifications</h4>
+                    <p style="color: #666; line-height: 1.7;">
+                        <strong>🎓 Master of Science in Cybersecurity</strong> - Georgia Institute of Technology (Pursuing)<br>
+                        <strong>🎓 B.Tech Computer Science</strong> - SRM University (University Topper - 3rd Rank)<br>
+                        <strong>🏅 Certifications:</strong> ITIL v3 Foundation, AWS Certified Developer - Associate
+                    </p>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Chitralekha. Staff Software Engineer | Cybersecurity Expert | Innovation Leader</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Built with HTML, CSS & JavaScript | Hosted on GitHub Pages</p>
+            <p>&copy; 2025 FNU Chitralekha. Staff Software Engineer</p>
+            <p style="margin-top: 8px; opacity: 0.7;">Built with HTML, CSS & JavaScript | Hosted on GitHub Pages</p>
         </div>
     </footer>
 
@@ -705,23 +743,38 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        // Header background change on scroll
+        // Active navigation link highlighting
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
         });
 
-        // Animate elements on scroll
+        // Fade in animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -730,18 +783,23 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe timeline items and skill categories
-        document.querySelectorAll('.timeline-content, .skill-category').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
         });
     </script>
 </body>
