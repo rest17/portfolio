@@ -30,6 +30,6 @@ Professional portfolio website for Chitralekha, a Staff Software Engineer with 1
 - **Location**: Dublin, CA
 
 ## 🌐 Live Demo
-Visit the live website: [Your GitHub Pages URL will go here]
+Visit the live website: [https://rest17.github.io/portfolio/]
 ---
 *Built with ❤️ and modern web technologies*
